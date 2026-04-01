@@ -1,22 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TeamInviteSectionComponent } from './components/team-invite-section.component';
-import { TeamManagementSidebarComponent } from './components/team-management-sidebar.component';
-import { TeamManagementTopbarComponent } from './components/team-management-topbar.component';
 import { TeamMembersTableComponent } from './components/team-members-table.component';
 import { TeamRolePermissionsComponent } from './components/team-role-permissions.component';
 import {
   PendingInvite,
   RolePermissionRow,
-  TeamMember,
-  TeamNavItem
+  TeamMember
 } from './models/team-management.models';
 
 @Component({
   selector: 'app-team-management-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    TeamManagementSidebarComponent,
-    TeamManagementTopbarComponent,
     TeamInviteSectionComponent,
     TeamMembersTableComponent,
     TeamRolePermissionsComponent
@@ -25,15 +20,6 @@ import {
   styleUrl: './team-management-page.component.scss'
 })
 export class TeamManagementPageComponent {
-  protected readonly navItems: readonly TeamNavItem[] = [
-    { icon: 'dashboard', label: 'Dashboard', route: '/dashboard' },
-    { icon: 'bug_report', label: 'Issues', route: '/issues' },
-    { icon: 'view_kanban', label: 'Board', route: '/board' },
-    { icon: 'speed', label: 'Sprint' },
-    { icon: 'assessment', label: 'Reports' },
-    { icon: 'group', label: 'Team', route: '/team' }
-  ];
-
   protected readonly pendingInvite: PendingInvite = {
     email: 'sarah.j@techflow.io',
     role: 'Member',

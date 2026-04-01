@@ -1,31 +1,25 @@
 <section class="team-page">
-  <app-team-management-sidebar [navItems]="navItems" />
+  <main class="team-main-content">
+    <div class="content-inner">
+      <header class="page-head">
+        <div>
+          <h1>Team members</h1>
+          <p>Manage who has access to this workspace — 6 members</p>
+        </div>
 
-  <div class="team-main-wrap">
-    <app-team-management-topbar />
+        <button type="button" class="invite-member-btn">
+          <span class="material-symbols-outlined">person_add</span>
+          Invite member
+        </button>
+      </header>
 
-    <main class="team-main-content">
-      <div class="content-inner">
-        <header class="page-head">
-          <div>
-            <h1>Team members</h1>
-            <p>Manage who has access to this workspace — 6 members</p>
-          </div>
+      <app-team-invite-section [pendingInvite]="pendingInvite" />
 
-          <button type="button" class="invite-member-btn">
-            <span class="material-symbols-outlined">person_add</span>
-            Invite member
-          </button>
-        </header>
+      <app-team-members-table [members]="members" />
 
-        <app-team-invite-section [pendingInvite]="pendingInvite" />
-
-        <app-team-members-table [members]="members" />
-
-        <app-team-role-permissions [rows]="permissionRows" />
-      </div>
-    </main>
-  </div>
+      <app-team-role-permissions [rows]="permissionRows" />
+    </div>
+  </main>
 
   <div class="autosave-pill" role="status" aria-live="polite">
     <span aria-hidden="true"></span>

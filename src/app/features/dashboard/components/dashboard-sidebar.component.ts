@@ -7,7 +7,7 @@ import { DashboardNavItem } from '../models/dashboard.models';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, RouterLinkActive],
   template: `
-    <aside class="sidebar-shell" aria-label="Sidebar navigation">
+    <aside class="sidebar-shell" [class.is-collapsed]="collapsed()" aria-label="Sidebar navigation">
       <div class="brand-block">
         <div class="brand-icon">
           <span class="material-symbols-outlined">terminal</span>
@@ -30,7 +30,7 @@ import { DashboardNavItem } from '../models/dashboard.models';
               class="nav-item"
               [routerLink]="item.route"
               routerLinkActive="is-active"
-              [routerLinkActiveOptions]="{ exact: item.route === '/dashboard' || item.route === '/issues' || item.route === '/board' || item.route === '/team' }"
+              [routerLinkActiveOptions]="{ exact: item.route !== '/issues' }"
             >
               <span class="material-symbols-outlined">{{ item.icon }}</span>
               <span>{{ item.label }}</span>
@@ -84,4 +84,5 @@ import { DashboardNavItem } from '../models/dashboard.models';
 })
 export class DashboardSidebarComponent {
   readonly navItems = input.required<readonly DashboardNavItem[]>();
+  readonly collapsed = input(false);
 }

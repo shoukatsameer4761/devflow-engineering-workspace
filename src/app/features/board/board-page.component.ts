@@ -1,15 +1,13 @@
 import { CdkDragDrop, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { BoardColumnComponent } from './components/board-column.component';
-import { BoardPageTopbarComponent } from './components/board-page-topbar.component';
-import { BoardSidebarComponent } from './components/board-sidebar.component';
 import { BoardSubheaderComponent } from './components/board-subheader.component';
 import { BoardColumn, BoardTaskCard } from './models/board.models';
 
 @Component({
   selector: 'app-board-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CdkDropListGroup, BoardSidebarComponent, BoardPageTopbarComponent, BoardSubheaderComponent, BoardColumnComponent],
+  imports: [CdkDropListGroup, BoardSubheaderComponent, BoardColumnComponent],
   templateUrl: './board-page.component.html',
   styleUrl: './board-page.component.scss'
 })

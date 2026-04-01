@@ -1,0 +1,46 @@
+<aside class="reports-sidebar" aria-label="Reports navigation">
+  <div class="brand-row">
+    <div class="brand-icon">
+      <span class="material-symbols-outlined">rocket_launch</span>
+    </div>
+    <h1>ProjectFlow</h1>
+  </div>
+
+  <nav class="nav-stack">
+    @for (item of navItems(); track item.label) {
+      @if (item.route) {
+        <a
+          class="nav-item"
+          [routerLink]="item.route"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: item.route === '/dashboard' || item.route === '/team' || item.route === '/reports' }"
+        >
+          <span class="material-symbols-outlined">{{ item.icon }}</span>
+          <span>{{ item.label }}</span>
+        </a>
+      } @else {
+        <button type="button" class="nav-item nav-item-button" [class.is-active]="item.active === true">
+          <span class="material-symbols-outlined">{{ item.icon }}</span>
+          <span>{{ item.label }}</span>
+        </button>
+      }
+    }
+  </nav>
+
+  <div class="sidebar-bottom">
+    <button type="button" class="create-project-btn">
+      <span class="material-symbols-outlined">add</span>
+      Create Project
+    </button>
+
+    <button type="button" class="nav-item nav-item-button">
+      <span class="material-symbols-outlined">help</span>
+      <span>Support</span>
+    </button>
+
+    <button type="button" class="nav-item nav-item-button">
+      <span class="material-symbols-outlined">person</span>
+      <span>Account</span>
+    </button>
+  </div>
+</aside>

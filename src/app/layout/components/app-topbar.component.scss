@@ -1,0 +1,103 @@
+:host {
+  display: block;
+}
+
+.app-topbar {
+  min-height: 4rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 24%, transparent);
+  background: color-mix(in srgb, var(--color-surface-container-lowest) 90%, transparent);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 1rem;
+  gap: 1rem;
+}
+
+.left-side,
+.right-side {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.icon-btn {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 0;
+  border-radius: 0.625rem;
+  background: transparent;
+  color: color-mix(in srgb, var(--color-on-surface) 70%, transparent);
+  display: grid;
+  place-items: center;
+}
+
+.icon-btn:hover {
+  background: var(--color-surface-container-high);
+}
+
+.breadcrumbs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.breadcrumbs a,
+.breadcrumbs .current {
+  font-size: 0.875rem;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.breadcrumbs a {
+  color: color-mix(in srgb, var(--color-on-surface-muted) 86%, transparent);
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumbs .current {
+  color: var(--color-on-surface);
+  font-weight: 700;
+}
+
+.breadcrumbs .material-symbols-outlined {
+  font-size: 1rem;
+  color: color-mix(in srgb, var(--color-on-surface-muted) 72%, transparent);
+}
+
+.theme-btn {
+  min-height: 2.25rem;
+  border-radius: 0.625rem;
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+  background: var(--color-surface-container-lowest);
+  padding-inline: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.theme-btn .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .app-topbar {
+    padding-inline: 0.75rem;
+  }
+
+  .breadcrumbs {
+    max-width: 55vw;
+  }
+
+  .theme-btn span:last-child {
+    display: none;
+  }
+}

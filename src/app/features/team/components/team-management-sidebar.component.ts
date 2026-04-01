@@ -25,7 +25,7 @@ import { TeamNavItem } from '../models/team-management.models';
               class="menu-item"
               [routerLink]="item.route"
               routerLinkActive="is-active"
-              [routerLinkActiveOptions]="{ exact: item.route === '/dashboard' || item.route === '/issues' || item.route === '/board' || item.route === '/team' }"
+              [routerLinkActiveOptions]="{ exact: item.route === '/dashboard' || item.route === '/issues' || item.route === '/board' || item.route === '/team' || item.route === '/reports' }"
             >
               <span class="material-symbols-outlined">{{ item.icon }}</span>
               <span>{{ item.label }}</span>

@@ -1,0 +1,33 @@
+<section class="reports-page">
+  <main class="reports-main-content">
+    <div class="reports-canvas">
+      <header class="analytics-head">
+        <div>
+          <h1>Analytics</h1>
+          <p>Project DevFlow — <span>Last 30 days</span></p>
+        </div>
+
+        <div class="head-actions">
+          <button type="button" class="date-btn">
+            <span class="material-symbols-outlined">calendar_today</span>
+            <span>Mar 1 - Mar 31</span>
+          </button>
+
+          <button type="button" class="export-btn">
+            <span>Export</span>
+            <span class="material-symbols-outlined">expand_more</span>
+          </button>
+        </div>
+      </header>
+
+      <app-reports-kpi-row [metrics]="metrics" />
+
+      <app-reports-analytics-charts
+        [performance]="performanceRows"
+        [distribution]="distributionByWeek"
+      />
+
+      <app-reports-sprint-progress [tasks]="sprintTasks" />
+    </div>
+  </main>
+</section>

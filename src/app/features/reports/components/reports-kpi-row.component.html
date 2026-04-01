@@ -1,0 +1,32 @@
+<section class="kpi-grid" aria-label="Analytics KPI metrics">
+  @for (metric of metrics(); track metric.title) {
+    <article class="kpi-card">
+      <p class="kpi-label">{{ metric.title }}</p>
+      <div class="kpi-value-row">
+        <span class="kpi-value" [style.color]="metric.valueColor ?? 'var(--color-on-surface)'">{{ metric.value }}</span>
+        @if (metric.trendText) {
+          <span class="kpi-trend" [class.success]="metric.trendTone === 'success'" [class.danger]="metric.trendTone === 'danger'">{{ metric.trendText }}</span>
+        }
+      </div>
+
+      @if (metric.bars; as bars) {
+        <div class="mini-bars" aria-hidden="true">
+          @for (barHeight of bars; track $index) {
+            <span [style.height.%]="barHeight"></span>
+          }
+        </div>
+      }
+
+      @if (metric.progress !== undefined) {
+        <div class="mini-progress" aria-hidden="true">
+          <span></span>
+          <div><i [style.width.%]="metric.progress"></i></div>
+        </div>
+      }
+
+      @if (metric.warningId) {
+        <p class="warning-id">{{ metric.warningId }}</p>
+      }
+    </article>
+  }
+</section>

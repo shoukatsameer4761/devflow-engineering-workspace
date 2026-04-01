@@ -1,0 +1,198 @@
+:host {
+  display: block;
+}
+
+.sprint-shell {
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 24%, transparent);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--color-surface-container-lowest);
+  box-shadow: 0 16px 24px -22px color-mix(in srgb, var(--color-on-surface) 30%, transparent);
+}
+
+.sprint-head {
+  padding: 1.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 20%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.sprint-head h3 {
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sprint-head p {
+  margin-top: 0.25rem;
+  font-size: 0.72rem;
+  color: color-mix(in srgb, var(--color-on-surface-muted) 86%, transparent);
+}
+
+.progress-number {
+  text-align: end;
+}
+
+.progress-number span {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.progress-number div {
+  inline-size: 8rem;
+  block-size: 0.35rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--color-surface-container-high);
+}
+
+.progress-number i {
+  display: block;
+  inline-size: 84%;
+  block-size: 100%;
+  background: var(--color-primary);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--color-surface-container-low);
+}
+
+th {
+  padding: 0.8rem 1.2rem;
+  text-align: start;
+  font-size: 0.62rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: color-mix(in srgb, var(--color-on-surface-muted) 85%, transparent);
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 18%, transparent);
+}
+
+tbody tr:hover {
+  background: color-mix(in srgb, var(--color-surface-container-low) 60%, transparent);
+}
+
+td {
+  padding: 0.95rem 1.2rem;
+  white-space: nowrap;
+  font-size: 0.75rem;
+}
+
+.name-cell {
+  font-weight: 800;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.status-chip span {
+  inline-size: 0.45rem;
+  block-size: 0.45rem;
+  border-radius: 999px;
+}
+
+.status-chip p {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.status-chip.done span {
+  background: #16a34a;
+}
+
+.status-chip.running span {
+  background: var(--color-primary);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.status-chip.review span {
+  background: color-mix(in srgb, var(--color-tertiary) 80%, #f59e0b 20%);
+}
+
+.assignee-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.assignee-cell img {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border-radius: 0.3rem;
+  object-fit: cover;
+}
+
+.assignee-cell p {
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.assignee-cell p.unassigned {
+  font-style: italic;
+  color: var(--color-outline);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.id-cell {
+  color: var(--color-outline);
+}
+
+footer {
+  padding: 0.85rem;
+  text-align: center;
+  background: color-mix(in srgb, var(--color-surface-container-low) 40%, transparent);
+}
+
+footer button {
+  border: 0;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.62rem;
+  font-weight: 900;
+  background: transparent;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .sprint-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

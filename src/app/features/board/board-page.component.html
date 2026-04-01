@@ -1,25 +1,20 @@
 <section class="board-page">
-  <app-board-sidebar />
+  <app-board-subheader />
 
-  <div class="board-main-wrap">
-    <app-board-page-topbar />
-    <app-board-subheader />
+  <main class="board-canvas board-scroll" aria-label="Kanban board">
+    <div class="columns-row" cdkDropListGroup>
+      @for (column of columns(); track column.id) {
+        <app-board-column
+          [column]="column"
+          [connectedDropListIds]="dropListIds()"
+          (cardDropped)="onCardDrop($event)"
+        />
+      }
 
-    <main class="board-canvas board-scroll" aria-label="Kanban board">
-      <div class="columns-row" cdkDropListGroup>
-        @for (column of columns(); track column.id) {
-          <app-board-column
-            [column]="column"
-            [connectedDropListIds]="dropListIds()"
-            (cardDropped)="onCardDrop($event)"
-          />
-        }
-
-        <section class="drop-zone" aria-label="Drop zone">
-          <div class="drop-zone-head"></div>
-          <div class="drop-zone-body">Drop here</div>
-        </section>
-      </div>
-    </main>
-  </div>
+      <section class="drop-zone" aria-label="Drop zone">
+        <div class="drop-zone-head"></div>
+        <div class="drop-zone-body">Drop here</div>
+      </section>
+    </div>
+  </main>
 </section>

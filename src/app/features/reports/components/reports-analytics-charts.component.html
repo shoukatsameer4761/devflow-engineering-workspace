@@ -1,0 +1,98 @@
+<section class="charts-grid-main">
+  <article class="line-chart-card">
+    <header>
+      <div>
+        <h3>Task completion over time</h3>
+        <div class="legend">
+          <p><span class="dot done"></span><span>Completed</span></p>
+          <p><span class="dot created"></span><span>Created</span></p>
+        </div>
+      </div>
+      <div class="range-toggle" aria-label="Date range">
+        <button type="button">7d</button>
+        <button type="button" class="is-active">30d</button>
+        <button type="button">90d</button>
+      </div>
+    </header>
+
+    <div class="chart-shell" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0 80 Q 20 20, 40 50 T 80 10 T 100 40"></path>
+        <path d="M0 90 Q 25 70, 50 85 T 100 60"></path>
+      </svg>
+      <span class="chart-tip">Mar 24: 12 Done</span>
+    </div>
+
+    <div class="axis-labels" aria-hidden="true">
+      <span>Mar 1</span>
+      <span>Mar 10</span>
+      <span>Mar 20</span>
+      <span>Mar 31</span>
+    </div>
+  </article>
+
+  <article class="donut-card">
+    <h3>Tasks by status</h3>
+    <div class="donut-wrap" aria-hidden="true">
+      <svg viewBox="0 0 144 144">
+        <circle cx="72" cy="72" r="60"></circle>
+        <circle cx="72" cy="72" r="60" class="done-ring"></circle>
+        <circle cx="72" cy="72" r="60" class="in-progress-ring"></circle>
+      </svg>
+      <div class="donut-center">
+        <span>48</span>
+        <p>Total</p>
+      </div>
+    </div>
+
+    <div class="status-breakdown">
+      <p><span class="dot done"></span><span>Done</span><strong>68%</strong></p>
+      <p><span class="dot progress"></span><span>In Progress</span><strong>22%</strong></p>
+      <p><span class="dot backlog"></span><span>Backlog</span><strong>10%</strong></p>
+    </div>
+  </article>
+</section>
+
+<section class="charts-grid-secondary">
+  <article class="performance-card">
+    <h3>Team performance</h3>
+
+    <div class="performance-list">
+      @for (row of performance(); track row.name) {
+        <div class="performance-row">
+          <img [src]="row.avatarUrl" [alt]="row.name + ' avatar'" [style.background]="row.avatarBg" />
+          <div class="meter-wrap">
+            <p>
+              <span>{{ row.name }}</span>
+              <strong>{{ row.completed }}</strong>
+            </p>
+            <div class="meter"><i [style.width.%]="row.progress"></i></div>
+          </div>
+        </div>
+      }
+    </div>
+  </article>
+
+  <article class="distribution-card">
+    <h3>Distribution by priority</h3>
+
+    <div class="dist-chart" aria-hidden="true">
+      @for (week of distribution(); track week.label) {
+        <div class="dist-week">
+          <span class="seg urgent" [style.height.%]="week.urgent"></span>
+          <span class="seg high" [style.height.%]="week.high"></span>
+          <span class="seg med" [style.height.%]="week.medium"></span>
+          <span class="seg low" [style.height.%]="week.low"></span>
+          <p>{{ week.label }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="dist-legend">
+      <p><span class="dot urgent"></span><span>Urgent</span></p>
+      <p><span class="dot high"></span><span>High</span></p>
+      <p><span class="dot med"></span><span>Med</span></p>
+      <p><span class="dot low"></span><span>Low</span></p>
+    </div>
+  </article>
+</section>

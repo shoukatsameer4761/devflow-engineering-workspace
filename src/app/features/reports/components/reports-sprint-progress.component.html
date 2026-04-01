@@ -1,0 +1,54 @@
+<section class="sprint-shell">
+  <header class="sprint-head">
+    <div>
+      <h3>Sprint progress</h3>
+      <p>Active Sprint #42 — Ending in 3 days</p>
+    </div>
+
+    <div class="progress-number">
+      <span>84%</span>
+      <div aria-hidden="true"><i></i></div>
+    </div>
+  </header>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Task Name</th>
+          <th>Status</th>
+          <th>Assignee</th>
+          <th>Due Date</th>
+          <th>ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (task of tasks(); track task.id) {
+          <tr>
+            <td class="name-cell">{{ task.name }}</td>
+            <td>
+              <div class="status-chip" [class.done]="task.status === 'Done'" [class.running]="task.status === 'Running'" [class.review]="task.status === 'Review'">
+                <span></span>
+                <p>{{ task.status }}</p>
+              </div>
+            </td>
+            <td>
+              <div class="assignee-cell">
+                @if (task.assigneeAvatarUrl) {
+                  <img [src]="task.assigneeAvatarUrl" [alt]="task.assigneeName + ' avatar'" />
+                }
+                <p [class.unassigned]="!task.assigneeAvatarUrl">{{ task.assigneeName }}</p>
+              </div>
+            </td>
+            <td class="mono">{{ task.dueDate }}</td>
+            <td class="mono id-cell">{{ task.id }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <button type="button">View all tasks</button>
+  </footer>
+</section>

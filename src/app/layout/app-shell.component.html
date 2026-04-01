@@ -1,0 +1,13 @@
+<section class="app-shell" [class.is-collapsed]="sidebarCollapsed()">
+  <div class="sidebar-host">
+    <app-dashboard-sidebar [navItems]="navItems" [collapsed]="sidebarCollapsed()" />
+  </div>
+
+  <div class="main-host">
+    <app-dashboard-topbar [title]="pageTitle()" (toggleSidebar)="toggleSidebar()" />
+
+    <div class="page-host">
+      <router-outlet />
+    </div>
+  </div>
+</section>

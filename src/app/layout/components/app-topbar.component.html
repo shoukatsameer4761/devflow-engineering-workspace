@@ -1,0 +1,29 @@
+<header class="app-topbar">
+  <div class="left-side">
+    <button type="button" class="icon-btn" (click)="toggleSidebar.emit()" aria-label="Toggle sidebar">
+      <span class="material-symbols-outlined">dock_to_left</span>
+    </button>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      @for (crumb of breadcrumbs(); track crumb.url; let last = $last) {
+        @if (!last) {
+          <a [routerLink]="crumb.url">{{ crumb.label }}</a>
+          <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+        } @else {
+          <span class="current">{{ crumb.label }}</span>
+        }
+      }
+    </nav>
+  </div>
+
+  <div class="right-side">
+    <button type="button" class="icon-btn" aria-label="Notifications">
+      <span class="material-symbols-outlined">notifications</span>
+    </button>
+
+    <button type="button" class="theme-btn" [attr.aria-label]="themeAriaLabel()" (click)="toggleTheme.emit()">
+      <span class="material-symbols-outlined">{{ themeMode() === 'dark' ? 'light_mode' : 'dark_mode' }}</span>
+      <span>{{ themeMode() === 'dark' ? 'Light' : 'Dark' }}</span>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,147 @@
+:host {
+  display: block;
+}
+
+.reports-sidebar {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  z-index: 40;
+  width: 15rem;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: color-mix(in srgb, var(--color-surface-container-low) 84%, #dbe5f6 16%);
+}
+
+:root[data-theme='dark'] .reports-sidebar {
+  background: color-mix(in srgb, var(--color-surface-container-low) 82%, #0f172a 18%);
+}
+
+.brand-row {
+  margin-bottom: 1.6rem;
+  padding-inline: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-icon {
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 0.5rem;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--color-primary);
+}
+
+.brand-icon span {
+  font-size: 1rem;
+}
+
+.brand-row h1 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: color-mix(in srgb, var(--color-primary) 54%, var(--color-on-surface) 46%);
+}
+
+.nav-stack {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.nav-item {
+  border: 0;
+  inline-size: 100%;
+  min-height: 2.5rem;
+  border-radius: 0.7rem;
+  padding: 0 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: color-mix(in srgb, var(--color-on-surface) 68%, transparent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: transparent;
+}
+
+.nav-item-button {
+  cursor: pointer;
+  text-align: start;
+}
+
+.nav-item:hover {
+  background: color-mix(in srgb, var(--color-surface-container-highest) 64%, transparent);
+}
+
+.nav-item.is-active {
+  color: color-mix(in srgb, var(--color-primary) 72%, var(--color-on-surface) 28%);
+  background: color-mix(in srgb, var(--color-surface-container-lowest) 88%, transparent);
+  box-shadow: 0 8px 16px -14px color-mix(in srgb, var(--color-primary) 38%, transparent);
+}
+
+.nav-item .material-symbols-outlined {
+  font-size: 1.2rem;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 36%, transparent);
+  display: grid;
+  gap: 0.25rem;
+}
+
+.create-project-btn {
+  border: 0;
+  min-height: 2.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.77rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.create-project-btn span {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 960px) {
+  .reports-sidebar {
+    position: static;
+    width: 100%;
+    min-height: auto;
+    padding: 1rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 36%, transparent);
+  }
+
+  .nav-stack {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sidebar-bottom {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .create-project-btn {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-stack,
+  .sidebar-bottom {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

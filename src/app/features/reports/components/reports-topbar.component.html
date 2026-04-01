@@ -1,0 +1,37 @@
+<header class="reports-topbar">
+  <div class="left-side">
+    <span class="engine-name">Analytics Engine</span>
+    <label class="search-shell" for="reports-search-input">
+      <span class="material-symbols-outlined">search</span>
+      <input id="reports-search-input" type="text" placeholder="Search analytics..." />
+    </label>
+  </div>
+
+  <div class="right-side">
+    <nav class="top-nav" aria-label="Analytics tabs">
+      <a href="#">Real-time</a>
+      <a class="is-active" href="#">Historical</a>
+      <a href="#">Forecast</a>
+      <a href="#">Export</a>
+    </nav>
+
+    <span class="vertical-divider" aria-hidden="true"></span>
+
+    <div class="actions">
+      <button type="button" class="icon-btn" aria-label="Notifications">
+        <span class="material-symbols-outlined">notifications</span>
+      </button>
+      <button type="button" class="icon-btn" aria-label="History">
+        <span class="material-symbols-outlined">history</span>
+      </button>
+      <button type="button" class="icon-btn" [attr.aria-label]="themeService.themeToggleAriaLabel()" (click)="toggleTheme()">
+        <span class="material-symbols-outlined">contrast</span>
+      </button>
+      <button type="button" class="share-btn">Share View</button>
+      <img
+        alt="User profile"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhqij6ULburnQ8hTEpwY3kAbKJ7x67g_iAZkIl1tRU7dh3yisCJudaH83zvD2Ipe-fNQSjtz1xm-VU7ya4KPRiw97OviM3sSdnrR79lQ8yfPRpL2jZ61OVz1yUn5t-6y4oMbUhDuNptRoH-KjrvMriD6RuY6MTyX3pF7xupy7PTPBDjIxEDmk1dA6af228tfkXyJ1Zr2y_gOEXrytQqJNqFarVRey15KqXRVmKb9BFeSFXT443C4c7g8tmpZrM44rTlzy479KsyIjG"
+      />
+    </div>
+  </div>
+</header>

@@ -1,0 +1,100 @@
+:host {
+  display: block;
+}
+
+.reports-page {
+  min-height: 100%;
+}
+
+.reports-main-content {
+  min-height: 100%;
+  padding: 2rem;
+}
+
+.reports-canvas {
+  width: min(100%, 68.75rem);
+  margin-inline: auto;
+  display: grid;
+  gap: 1.3rem;
+}
+
+.analytics-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.analytics-head h1 {
+  font-size: 1.95rem;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.analytics-head p {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--color-on-surface-muted) 86%, transparent);
+}
+
+.analytics-head p span {
+  color: color-mix(in srgb, var(--color-primary) 62%, transparent);
+}
+
+.head-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.date-btn,
+.export-btn {
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
+  border-radius: 0.75rem;
+  min-height: 2.6rem;
+  padding-inline: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--color-surface-container-lowest);
+  cursor: pointer;
+}
+
+.date-btn span:first-child,
+.export-btn span:last-child {
+  font-size: 1rem;
+}
+
+.date-btn span:last-child,
+.export-btn span:first-child {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .reports-main-content {
+    padding: 1rem;
+  }
+
+  .analytics-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .reports-main-content {
+    padding: 0.8rem;
+  }
+
+  .analytics-head h1 {
+    font-size: 1.75rem;
+  }
+
+  .head-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}

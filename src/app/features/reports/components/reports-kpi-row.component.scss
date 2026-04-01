@@ -1,0 +1,115 @@
+:host {
+  display: block;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.kpi-card {
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 24%, transparent);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: var(--color-surface-container-lowest);
+  box-shadow: 0 16px 24px -22px color-mix(in srgb, var(--color-on-surface) 30%, transparent);
+}
+
+.kpi-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  color: color-mix(in srgb, var(--color-on-surface-muted) 84%, transparent);
+}
+
+.kpi-value-row {
+  margin-top: 0.45rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+
+.kpi-value {
+  font-family: var(--font-mono);
+  font-size: 1.9rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.kpi-trend {
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.kpi-trend.success {
+  color: #16803a;
+}
+
+.kpi-trend.danger {
+  border-radius: 999px;
+  padding: 0.16rem 0.45rem;
+  color: #8f102d;
+  background: color-mix(in srgb, #ffdad6 72%, transparent);
+}
+
+.mini-bars {
+  margin-top: 0.75rem;
+  block-size: 2rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.mini-bars span {
+  flex: 1;
+  border-radius: 0.2rem 0.2rem 0 0;
+  background: color-mix(in srgb, var(--color-success) 50%, #7dd3a6 50%);
+}
+
+.mini-progress {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mini-progress > span {
+  inline-size: 0.45rem;
+  block-size: 0.45rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.mini-progress > div {
+  flex: 1;
+  block-size: 0.38rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--color-primary) 20%, #d7d4ff 80%);
+}
+
+.mini-progress > div i {
+  display: block;
+  block-size: 100%;
+  background: var(--color-primary);
+}
+
+.warning-id {
+  margin-top: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  color: color-mix(in srgb, var(--color-on-surface-muted) 86%, transparent);
+}
+
+@media (max-width: 1080px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,24 +1,18 @@
 <section class="dashboard-page">
-  <app-dashboard-sidebar [navItems]="navItems" />
+  <main class="dashboard-main-content">
+    <app-dashboard-kpi-metrics [metrics]="metrics" />
 
-  <div class="dashboard-main-wrap">
-    <app-dashboard-topbar />
+    <section class="split-layout">
+      <div class="split-left">
+        <app-dashboard-task-list [tasks]="tasks" />
+      </div>
 
-    <main class="dashboard-main-content">
-      <app-dashboard-kpi-metrics [metrics]="metrics" />
+      <div class="split-right">
+        <app-dashboard-activity-feed [activities]="activities" />
+        <app-dashboard-projects-overview [projects]="projects" />
+      </div>
+    </section>
 
-      <section class="split-layout">
-        <div class="split-left">
-          <app-dashboard-task-list [tasks]="tasks" />
-        </div>
-
-        <div class="split-right">
-          <app-dashboard-activity-feed [activities]="activities" />
-          <app-dashboard-projects-overview [projects]="projects" />
-        </div>
-      </section>
-
-      <app-dashboard-board-preview [columns]="boardColumns" />
-    </main>
-  </div>
+    <app-dashboard-board-preview [columns]="boardColumns" />
+  </main>
 </section>

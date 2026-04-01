@@ -3,15 +3,11 @@
 }
 
 .team-page {
-  min-height: 100dvh;
-}
-
-.team-main-wrap {
-  margin-left: 15rem;
+  min-height: 100%;
 }
 
 .team-main-content {
-  min-height: calc(100dvh - 4rem);
+  min-height: 100%;
   padding: 2.5rem;
   display: flex;
   justify-content: center;
@@ -113,10 +109,6 @@ app-team-members-table {
 }
 
 @media (max-width: 960px) {
-  .team-main-wrap {
-    margin-left: 0;
-  }
-
   .team-main-content {
     padding: 1rem;
   }

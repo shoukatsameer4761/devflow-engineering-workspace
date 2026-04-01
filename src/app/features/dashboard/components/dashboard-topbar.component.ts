@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, output } from '@angular/core';
 import { ThemeService } from '../../../core/theme.service';
 
 @Component({
@@ -6,7 +6,12 @@ import { ThemeService } from '../../../core/theme.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="topbar-shell">
-      <h2>Dashboard</h2>
+      <div class="title-wrap">
+        <button class="icon-btn" type="button" aria-label="Toggle sidebar" (click)="toggleSidebar.emit()">
+          <span class="material-symbols-outlined">dock_to_left</span>
+        </button>
+        <h2>{{ title() }}</h2>
+      </div>
 
       <div class="topbar-actions">
         <button
@@ -36,4 +41,6 @@ import { ThemeService } from '../../../core/theme.service';
 })
 export class DashboardTopbarComponent {
   protected readonly themeService = inject(ThemeService);
+  readonly title = input('Dashboard');
+  readonly toggleSidebar = output<void>();
 }

@@ -3,13 +3,10 @@ import { DashboardActivityFeedComponent } from './components/dashboard-activity-
 import { DashboardBoardPreviewComponent } from './components/dashboard-board-preview.component';
 import { DashboardKpiMetricsComponent } from './components/dashboard-kpi-metrics.component';
 import { DashboardProjectsOverviewComponent } from './components/dashboard-projects-overview.component';
-import { DashboardSidebarComponent } from './components/dashboard-sidebar.component';
 import { DashboardTaskListComponent } from './components/dashboard-task-list.component';
-import { DashboardTopbarComponent } from './components/dashboard-topbar.component';
 import {
   ActivityItem,
   BoardColumn,
-  DashboardNavItem,
   KpiMetric,
   ProjectProgress,
   TaskItem
@@ -19,8 +16,6 @@ import {
   selector: 'app-dashboard-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    DashboardSidebarComponent,
-    DashboardTopbarComponent,
     DashboardKpiMetricsComponent,
     DashboardTaskListComponent,
     DashboardActivityFeedComponent,
@@ -31,15 +26,6 @@ import {
   styleUrl: './dashboard-page.component.scss'
 })
 export class DashboardPageComponent {
-  protected readonly navItems: readonly DashboardNavItem[] = [
-    { icon: 'dashboard', label: 'Dashboard', route: '/dashboard' },
-    { icon: 'list_alt', label: 'Issues', route: '/issues' },
-    { icon: 'view_kanban', label: 'Board', route: '/board' },
-    { icon: 'speed', label: 'Sprint' },
-    { icon: 'assessment', label: 'Reports' },
-    { icon: 'group', label: 'Team', route: '/team' }
-  ];
-
   protected readonly metrics: readonly KpiMetric[] = [
     {
       label: 'Total tasks',

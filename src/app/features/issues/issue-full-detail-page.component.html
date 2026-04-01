@@ -1,40 +1,6 @@
 <section class="issue-full-page">
-  <app-dashboard-sidebar [navItems]="navItems" />
-
-  <div class="issue-main-wrap">
-    <header class="issue-topbar">
-      <div class="crumbs">
-        <a routerLink="/issues">Issues</a>
-        <span class="material-symbols-outlined">chevron_right</span>
-        <span>{{ detail().id }}</span>
-      </div>
-
-      <div class="actions">
-        <button type="button" class="icon-btn" aria-label="Copy link">
-          <span class="material-symbols-outlined">link</span>
-        </button>
-        <button type="button" class="icon-btn" aria-label="Toggle side navigation">
-          <span class="material-symbols-outlined">side_navigation</span>
-        </button>
-        <button type="button" class="icon-btn" aria-label="More options">
-          <span class="material-symbols-outlined">more_vert</span>
-        </button>
-        <span class="top-divider" aria-hidden="true"></span>
-        <button type="button" class="complete-btn" aria-label="Mark issue complete">
-          <span class="material-symbols-outlined">check_circle</span>
-          Complete
-        </button>
-        <button type="button" class="profile-btn" aria-label="Open user profile">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfasiUa0CInkhA28cxE0epRVWLvaPAIeWfJi_5o-P_8oZ3GznG6f76P66VfHH-XazXukKRzsVhnQnznUZqebOssOvXVJbNqUqTMiNJUYRwgew8Qzyv_Rkv0q-DzCZbP0JBo-WgegiGPSvWfmEQqHlvRsf7rlQLWp4GXXLTw4zFAweHPHb1Ip_fFz_OqQgGu20ZrGZxt6K0E9lZLEl-ctBczrt9b4W0GZ2D1YOl7Hh2PodCr9ZkFLGioR2YsFh6JGzeDGshQvKkfm9h"
-            alt="User profile"
-          />
-        </button>
-      </div>
-    </header>
-
-    <main class="issue-canvas">
-      <article class="issue-card">
+  <main class="issue-canvas">
+    <article class="issue-card">
         <section class="identity">
           <div class="meta-row">
             <span class="status-chip" [class]="'status-chip ' + detail().statusTone">
@@ -209,11 +175,11 @@
             }
           </div>
         </section>
-      </article>
-    </main>
+    </article>
+  </main>
 
-    <footer class="sticky-comment-bar">
-      <div class="sticky-inner">
+  <footer class="sticky-comment-bar">
+    <div class="sticky-inner">
         <img
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCspJIieoht7pWRc3lqT4DpLBwYzurPQ1JIBTKY-hXByA4ANGJ64E6b-4RJL3QJWZbrdyZciZb4DrWU1ZoEvSQJV4WFqcLAtMPZeIY_tzR8PqhDlVSyzrIaDleCqhCJhGAcIrnbVHyxAPv8k-PBVsL8ojopJnsvOqCKrFnjSQB0GdFiJ5W6G-ZTAg2w-fVuomA14ouwmvJ0hdKm4RP8Z8w4O41zuYYHxJqvh4BFOoH882BIKd7gCiJHhNCWaRTH8UDSBkXXVJhdIlh8"
           alt="Current user profile"
@@ -231,7 +197,6 @@
         <button type="button" class="send-btn" aria-label="Send comment">
           <span class="material-symbols-outlined">send</span>
         </button>
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 </section>

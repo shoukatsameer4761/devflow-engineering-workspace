@@ -1,0 +1,37 @@
+<aside class="app-sidebar" [class.is-collapsed]="collapsed()" aria-label="Primary navigation">
+  <div class="brand-block">
+    <div class="brand-icon">
+      <span class="material-symbols-outlined">rocket_launch</span>
+    </div>
+    <div class="brand-text">
+      <h1>DevFlow</h1>
+      <p>Project Ops</p>
+    </div>
+  </div>
+
+  <nav class="nav-group" aria-label="Main sections">
+    @for (item of items(); track item.route) {
+      <a
+        class="nav-item"
+        [routerLink]="item.route"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: item.exact ?? true }"
+      >
+        <span class="material-symbols-outlined">{{ item.icon }}</span>
+        <span class="nav-label">{{ item.label }}</span>
+      </a>
+    }
+  </nav>
+
+  <div class="sidebar-footer">
+    <button type="button" class="create-btn">
+      <span class="material-symbols-outlined">add</span>
+      <span class="nav-label">Create</span>
+    </button>
+
+    <a class="nav-item" href="#" aria-label="Open support">
+      <span class="material-symbols-outlined">help</span>
+      <span class="nav-label">Support</span>
+    </a>
+  </div>
+</aside>

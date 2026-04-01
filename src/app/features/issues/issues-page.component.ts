@@ -1,11 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { DashboardSidebarComponent } from '../dashboard/components/dashboard-sidebar.component';
-import { DashboardNavItem } from '../dashboard/models/dashboard.models';
 import { IssueDetailDrawerComponent } from './components/issue-detail-drawer.component';
 import { IssuesMetricsComponent } from './components/issues-metrics.component';
 import { IssuesTableComponent } from './components/issues-table.component';
-import { IssuesTopbarComponent } from './components/issues-topbar.component';
 import { getIssueDetailById } from './models/issue-detail.data';
 import { IssueDetail } from './models/issue-detail.models';
 import { IssueMetric, IssueRow } from './models/issue.models';
@@ -13,13 +10,7 @@ import { IssueMetric, IssueRow } from './models/issue.models';
 @Component({
   selector: 'app-issues-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    DashboardSidebarComponent,
-    IssuesTopbarComponent,
-    IssuesTableComponent,
-    IssuesMetricsComponent,
-    IssueDetailDrawerComponent
-  ],
+  imports: [IssuesTableComponent, IssuesMetricsComponent, IssueDetailDrawerComponent],
   templateUrl: './issues-page.component.html',
   styleUrl: './issues-page.component.scss'
 })
@@ -27,15 +18,6 @@ export class IssuesPageComponent {
   private readonly router = inject(Router);
 
   protected readonly selectedIssueDetail = signal<IssueDetail | null>(null);
-
-  protected readonly navItems: readonly DashboardNavItem[] = [
-    { icon: 'dashboard', label: 'Dashboard', route: '/dashboard' },
-    { icon: 'list_alt', label: 'Issues', route: '/issues' },
-    { icon: 'view_kanban', label: 'Board', route: '/board' },
-    { icon: 'speed', label: 'Sprint' },
-    { icon: 'assessment', label: 'Reports' },
-    { icon: 'group', label: 'Team', route: '/team' }
-  ];
 
   protected readonly issues: readonly IssueRow[] = [
     {
